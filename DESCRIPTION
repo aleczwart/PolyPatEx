@@ -1,7 +1,7 @@
 Package: PolyPatEx
 Type: Package
 Title: Paternity Exclusion in Autopolyploid Species
-Version: 0.9.1
+Version: 0.9.2
 Date: 2015-09-23
 Author: Alexander Zwart
 Maintainer: Alexander Zwart <Alec.Zwart@csiro.au>

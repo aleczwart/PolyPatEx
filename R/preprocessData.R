@@ -435,6 +435,16 @@ preprocessData <- function(adata,
     }
   }  # Otherwise non-mother females remain in the dataset
   ##
+  ## Mother/progeny mismatches could result in no progeny (or their
+  ## mothers) left in the dataset - check, and abort if this is the
+  ## case.
+  if (length(adata$id[!is.na(adata$mother)])==0) {
+    msg <- paste0("\nThere appear to be no progeny in this dataset.  Perhaps",
+                  "\n the data checking & cleaning above has removed all",
+                  "\n progeny and their mothers from the dataset?  Otherwise,",
+                  "\n check the format of your data file for possible errors.\n")
+    stop(msg)
+  }
   cat("\n Done \n\n")
   return(adata)
 }

@@ -131,10 +131,10 @@ removeMismatches <- function(adata,matMismatches) {
     cat("\n")
     ##
     ##Set the affected 'fewerLocusMismatches' loci to missing.
-##    TODO - fix the following to loop over all affected loci:
+    cc$Loci <- as.character(cc$Loci) ## To ensure strsplit() works.
     for (thisProgeny in as.character(cc$ProgenyId))
       {
-        affectedLoci <- with(cc,unlist(strsplit(Loci[ProgenyId==thisProgeny]),", "))
+        affectedLoci <- as.numeric(unlist(strsplit(cc$Loci[cc$ProgenyId==thisProgeny],", ")))
         for (thisLocus in affectedLoci)
           {
             locusRange <- (3 + dioecious) + 1:ploidy +
